@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+  </head>
+  
+  
+  <body>
+	<div class="container">
+		<%@include file="navbar.jsp"%>
+	
+	</div>    
+  </body>
+</html>

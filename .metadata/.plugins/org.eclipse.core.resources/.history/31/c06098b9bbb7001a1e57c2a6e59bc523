@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<%@include file="allcssbootstrapjsFile.jsp"%>
+
+<title>Home Page</title>
+
+    </head>
+  <body>
+				<%@include file="navbar.jsp" %>
+	
+	<div class="container">
+	
+	<h1>This</h1>
+	
+	</div>
+
+   </body>
+</html>

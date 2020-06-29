@@ -1,0 +1,49 @@
+package com.servlets;
+
+import java.io.IOException;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.entites.Note;
+import com.helper.factoryProvider;
+
+public class SaveNoteServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+     public SaveNoteServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	try {
+		//title,content fetch using request object.
+		
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		Note note = new Note(title ,content, new Date());
+		//save:hibernate ,session not thread safe thats y we close session.
+		
+		Session s=factoryProvider.getFactory().openSession();
+		//i want this data store in database permanently then we need to open the transaction
+		
+		Transaction tx =s.beginTransaction();
+		tx.commit();
+		s.save(note);
+		s.close();
+		//the values are save in database
+	} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+}

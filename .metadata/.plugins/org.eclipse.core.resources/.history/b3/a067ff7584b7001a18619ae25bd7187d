@@ -1,0 +1,37 @@
+package com.servlets;
+
+import java.io.IOException;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.entites.Note;
+
+public class SaveNoteServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+     public SaveNoteServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	try {
+		//title,content fetch using request object.
+		
+		String titletype = request.getParameter("title");
+		String contentadd = request.getParameter("content");
+
+		Note note=new Note(title, content, addDate);
+		System.out.println(note.getId()+"  "+note.getTitle());
+	} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+}
